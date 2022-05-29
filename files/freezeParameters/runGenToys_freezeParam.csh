@@ -1,0 +1,11 @@
+toys=$1
+r=$2
+cat=$3
+freezeParam=$4
+freeParam=$5
+fileExt=freezeAll_free_${freeParam}
+method=GenerateOnly
+datacard=datacard_${cat}.txt
+output=_${cat}_Gen${toys}_signal${r}_${fileExt}
+echo execute combine -M $method -d $datacard -n $output --bypassFrequentistFit -t $toys --expectSignal=$r --saveToys --freezeParameters ${freezeParam}
+combine -M	$method	-d $datacard -n	$output	 --bypassFrequentistFit -t $toys --expectSignal=$r --saveToys --freezeParameters ${freezeParam}

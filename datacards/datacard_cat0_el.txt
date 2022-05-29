@@ -1,0 +1,31 @@
+max * number of bins
+jmax * number of samples minus 1
+kmax * number of nuisance parameters
+---------------------------------------------------------------------
+shapes data_obs *       {pathTo}InputFiles/shapes_data_el_mBB_10_btagSF_cutMET.root h_mBB_data
+shapes *	    *       {pathTo}InputFiles/shapesVar_el_mBB_10_btagSF_cutMET_SF.root h_$PROCESS_mBB h_$PROCESS_mBB_$SYSTEMATIC
+shapes qcd      *       {pathTo}InputFiles/shapes_qcdVar_el_mBB_10_btagSF_cutMET.root h_$PROCESS_mBB h_$PROCESS_mBB_$SYSTEMATIC
+----------------------------------------------------------------------
+bin el_cat0
+observation -1.0
+----------------------------------------------------------------------
+bin                     	el_cat0      el_cat0     el_cat0      el_cat0    el_cat0     el_cat0       el_cat0        el_cat0      
+process                 	sgl          cc          udsg         TTbar      ST          DY            diboson        qcd  
+process                 	0            1           2            3          4           5             6              7           
+rate                    	-1.0         -1.0        -1.0         -1.0       -1.0        -1.0          -1.0           -1.0
+----------------------------------------------------------------------
+lumi_13TeV          lnN     1.025        1.025       1.025        1.025      1.025       1.025         1.025          -
+eff_el              lnN     1.03         1.03        1.03         1.03       1.03        1.03          1.03           -  
+yield_sgl           lnN   	1.10         -           -            -          -           -             -              -
+yield_cc           	lnN   	 -           1.10        -            -          -           -             -              -         
+yield_udsg        	lnN   	 -            -          1.10         -          -           -             -              -
+yield_TTbar   		lnN    	 -            -          -            1.01       -           -             -              -
+yield_ST      		lnN	     -            -          -            -          1.10        -             -              -
+yield_DY      		lnN	     -            -          -            -          -           1.20          -              -
+yield_diboson 		lnN	     -            -          -            -          -           -             1.20           -
+yield_qcd_el        lnU      -            -          -            -          -           -             -              10.0
+QCD_SR_shape        shape    -            -          -            -          -           -             -              1.0
+btagH               shape   1.0          1.0        1.0          1.0        1.0         1.0           1.0             -      
+btagL               shape   1.0          1.0        1.0          1.0        1.0         1.0           1.0             -      
+lepEff              shape   1.0          1.0        1.0          1.0        1.0         1.0           1.0             -      
+* autoMCStats 10 0 1 

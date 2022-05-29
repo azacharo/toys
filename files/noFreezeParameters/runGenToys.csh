@@ -1,0 +1,12 @@
+toys=$1
+r=$2
+run=$3
+cat=$4
+chan=$5
+seed=$6
+method=GenerateOnly
+datacard=datacard_${cat}_${chan}.txt
+output=_${cat}_${chan}_Gen${toys}_signal${r}_run${run}
+options="--saveToys"
+echo execute combine -M $method -d $datacard -n $output --bypassFrequentistFit  --expectSignal=${r} -t $toys --saveToys -s ${seed}
+combine -M	$method	-d $datacard -n	$output	 --bypassFrequentistFit --expectSignal=${r} -t $toys --saveToys -s ${seed}
