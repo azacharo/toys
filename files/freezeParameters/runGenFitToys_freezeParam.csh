@@ -1,11 +1,16 @@
 #!/bin/bash
 freeParam=$1
 toys=$2
-cat=(cat0_mu cat0_el)
+automc=$3
+#cat=(cat0_mu cat0_el cat1_mu cat1_el cat01_mu cat01_el cat01_muel)
+#cat=(cat0_mu cat0_el)
+# cat=(cat01_mu cat01_el)
+# cat=(cat1_mu cat1_el cat01_muel)
+cat=(cat2_mu cat2_el cat012_mu cat012_el cat012_muel)
 
 rExp=(0.5 1 1.5 2)
 freezeParamINIT=yield_ST,yield_TTbar,yield_DY,yield_diboson,yield_cc,yield_udsg
-#echo initially ${freezeParamINIT}
+#echo initially freezeParam ${freezeParamINIT}
 remove=""
 if [[ $freeParam == "none" ]];
 then
@@ -43,19 +48,31 @@ do
   then 
     freezeParam=${freezeParam}",QCD_ST_shape"
   fi
-  #echo $icat " " ${freezeParam}
+  if [[ $icat =~ "2" ]];
+  then
+    freezeParam=${freezeParam}",QCD_CRmetINV_shape"
+  fi
+  #echo $icat freezeParam ${freezeParam}
   
   for j in "${rExp[@]}"
   do  
     output=_${icat}_Gen${toys}_signal${j}_freezeAll_free_${freeParam}
+    if [[ $automc == "off" ]]
+    then
+      output=${output}_noAutoMCStats
+    fi
+
     fileToys=higgsCombine${output}.GenerateOnly.mH120.123456.root
     fileToys2=higgsCombine${output}.FitDiagnostics.mH120.123456.root
-    ./runGenToys_freezeParam.csh ${toys} $j $icat ${freezeParam} ${freeParam}
-    ./runFitToys_freezeParam.csh ${toys} $j $icat ${freezeParam} ${freeParam}
+    ./runGenToys_freezeParam.csh ${toys} $j $icat ${freezeParam} ${freeParam} ${automc}
+    ./runFitToys_freezeParam.csh ${toys} $j $icat ${freezeParam} ${freeParam} ${automc}
     rm ${fileToys}
     rm ${fileToys2}
     fitFile=fitDiagnostics${output}.root
     mv ${fitFile} files/free_${freeParam} 
-    done
+  done
   freezeParam=${freezeParamFree}
+  #echo $icat at the end freezeParam ${freezeParam}
+  #echo ""
+
 done
