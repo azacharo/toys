@@ -2,9 +2,9 @@ max * number of bins
 jmax * number of samples minus 1
 kmax * number of nuisance parameters
 ---------------------------------------------------------------------
-shapes data_obs *       {pathTo}InputFiles/shapes_data_el_mBB_10_btagSF_cutMET.root h_mBB_data
-shapes *	    *       {pathTo}InputFiles/shapesVar_el_mBB_10_btagSF_cutMET_SF.root h_$PROCESS_mBB h_$PROCESS_mBB_$SYSTEMATIC
-shapes qcd      *       {pathTo}InputFiles/shapes_qcdVar_el_mBB_10_btagSF_cutMET.root h_$PROCESS_mBB h_$PROCESS_mBB_$SYSTEMATIC
+shapes data_obs *       {pathTo}InputFiles/cat0_SR/shapes_data_el_mBB_10_btagSF_cutMET.root h_mBB_data
+shapes *	    *           {pathTo}InputFiles/cat0_SR/shapesVar_el_mBB_10_btagSF_cutMET_SF.root h_$PROCESS_mBB h_$PROCESS_mBB_$SYSTEMATIC
+shapes qcd      *       {pathTo}InputFiles/cat0_SR/shapes_qcdVar_el_mBB_10_btagSF_cutMET.root h_$PROCESS_mBB h_$PROCESS_mBB_$SYSTEMATIC
 ----------------------------------------------------------------------
 bin el_cat0
 observation -1.0

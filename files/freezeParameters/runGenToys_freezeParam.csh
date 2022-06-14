@@ -1,4 +1,3 @@
-
 toys=$1
 r=$2
 cat=$3
@@ -6,7 +5,7 @@ freezeParam=$4
 freeParam=$5
 automc=$6
 fileExt=freezeAll_free_${freeParam}
-if [[ $automc == "off" ]];
+if [[ $automc == "off" ]]
 then 
     fileExt=${fileExt}_noAutoMCStats
 fi

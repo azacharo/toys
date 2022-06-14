@@ -2,11 +2,7 @@
 freeParam=$1
 toys=$2
 automc=$3
-#cat=(cat0_mu cat0_el cat1_mu cat1_el cat01_mu cat01_el cat01_muel)
-#cat=(cat0_mu cat0_el)
-# cat=(cat01_mu cat01_el)
-# cat=(cat1_mu cat1_el cat01_muel)
-cat=(cat2_mu cat2_el cat012_mu cat012_el cat012_muel)
+cat=(cat01_muel)
 
 rExp=(0.5 1 1.5 2)
 freezeParamINIT=yield_ST,yield_TTbar,yield_DY,yield_diboson,yield_cc,yield_udsg
@@ -68,8 +64,8 @@ do
     ./runFitToys_freezeParam.csh ${toys} $j $icat ${freezeParam} ${freeParam} ${automc}
     rm ${fileToys}
     rm ${fileToys2}
-    fitFile=fitDiagnostics${output}.root
-    mv ${fitFile} files/free_${freeParam} 
+    # fitFile=fitDiagnostics${output}.root
+    # mv ${fitFile} files/free_${freeParam} 
   done
   freezeParam=${freezeParamFree}
   #echo $icat at the end freezeParam ${freezeParam}

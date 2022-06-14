@@ -1,0 +1,35 @@
+In this repository one can find the datacards, the InputFiles and the bash scripts to generate and fit toys with Combine for 2 cases. 
+All these toys are generated and fitted for 4 different values of injected signal strength rInjected={0.5, 1, 1.5, 2}.
+
+1) The first case is to generate and fit one by one toy (using different seed number) in order to save the post fit shapes of all processes for each toy. 
+In this case all processes are free and none is frozen. These can be done by running the bash scripts in toys/files/noFreezeParameters.
+Also the option "autoMCStats" can be either on or off, by giving the corresponding input.
+
+Execution: ./runGenFitToys.csh on OR ./runGenFitToys.csh off
+
+This files calls in a loop for 100 runs for each rInjected runGenToys.csh to generate a toy and then runFitToys.csh to fit this toy.
+
+The output files higgsCombine*root are deleted in each run.
+
+2) The second case is to generate and fit N toys but on-the-fly, so the post fit shapes for the processes are not saved, only the signal strength 
+that is calculated for each toy is saved. In this case toys are generated and fitted with freezing a selected process and keep the rest free. 
+These can be done by running the bash scripts in toys/files/freezeParameters.
+Also the option "autoMCStats" can be either on or off, by giving the corresponding input.
+
+By executing ./runGenFit_all.csh N on ./runGenFit_all.csh N off one can generate and fit N toys:
+    i)   by keeping all processes frozen (freezeAll_free_none)
+    ii)  by keeping all processes frozen and set free only Single Top (ST) (freezeAll_free_ST)
+    iii) by keeping all processes frozen and set free only TTbar (freezeAll_free_TTbar)
+    iv)  by keeping all processes frozen and set free both ST and TTbar (freezeAll_free_ST_TTbar)
+with (on) OR without (off) the option autoMCStats.
+
+This script calls runGenFitToys_freezeParam.csh which one can run alone in order to freeze only one process from [none ST TTbar ST_TTbar]
+Execution: ./runGenFitToys_freezeParam.csh {freeParam} {N-toys} {on OR off} 
+{freeParam} = one process from [none ST TTbar ST_TTbar] to be frozen
+{N-toys} = number of toys 
+{on OR off} = set option autoMCStats on or off
+
+
+General:
+1) In datacards which can be found in directory datacards/ the path to Input files should be corrected 
+2) Bash scripts for toys' generation and fit should be in the same directory with datacards

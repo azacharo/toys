@@ -1,0 +1,35 @@
+Combination of cat0_el=datacard_cat0_el.txt  cat1_el=datacard_cat1_el.txt
+imax 2 number of bins
+jmax 7 number of processes minus 1
+kmax * number of nuisance parameters
+----------------------------------------------------------------------------------------------------------------------------------
+shapes *         cat0_el   {pathTo}InputFiles/cat0_SR/shapesVar_el_mBB_10_btagSF_cutMET_SF.root h_$PROCESS_mBB h_$PROCESS_mBB_$SYSTEMATIC
+shapes data_obs  cat0_el   {pathTo}InputFiles/cat0_SR/shapes_data_el_mBB_10_btagSF_cutMET.root h_mBB_data
+shapes qcd       cat0_el   {pathTo}InputFiles/cat0_SR/shapes_qcdVar_el_mBB_10_btagSF_cutMET.root h_$PROCESS_mBB h_$PROCESS_mBB_$SYSTEMATIC
+shapes *         cat1_el   {pathTo}InputFiles/cat1_ST/ST_shapesVar_el_mTtop_10_btagSF_SF.root h_$PROCESS_mTtop h_$PROCESS_mTtop_$SYSTEMATIC
+shapes data_obs  cat1_el   {pathTo}InputFiles/cat1_ST/shapes_data_el_mTtop_10_btagSF.root h_mTtop_data
+shapes qcd       cat1_el   {pathTo}InputFiles/cat1_ST/shapes_qcdVar_el_mTtop_10_btagSF.root h_$PROCESS_mTtop h_$PROCESS_mTtop_$SYSTEMATIC
+----------------------------------------------------------------------------------------------------------------------------------
+bin          cat0_el  cat1_el
+observation  -1       -1     
+----------------------------------------------------------------------------------------------------------------------------------
+bin                               cat0_el  cat0_el  cat0_el  cat0_el  cat0_el  cat0_el  cat0_el  cat0_el  cat1_el  cat1_el  cat1_el  cat1_el  cat1_el  cat1_el  cat1_el  cat1_el
+process                           sgl      diboson  udsg     cc       qcd      ST       DY       TTbar    sgl      diboson  udsg     cc       qcd      ST       DY       TTbar  
+process                           0        1        2        3        4        5        6        7        0        1        2        3        4        5        6        7      
+rate                              -1       -1       -1       -1       -1       -1       -1       -1       -1       -1       -1       -1       -1       -1       -1       -1     
+----------------------------------------------------------------------------------------------------------------------------------
+QCD_SR_shape            shape     -        -        -        -        1.0      -        -        -        -        -        -        -        -        -        -        -      
+QCD_ST_shape            shape     -        -        -        -        -        -        -        -        -        -        -        -        1.0      -        -        -      
+btagH                   shape     1.0      1.0      1.0      1.0      -        1.0      1.0      1.0      1.0      1.0      1.0      1.0      -        1.0      1.0      1.0    
+btagL                   shape     1.0      1.0      1.0      1.0      -        1.0      1.0      1.0      1.0      1.0      1.0      1.0      -        1.0      1.0      1.0    
+eff_el                  lnN       1.03     1.03     1.03     1.03     -        1.03     1.03     1.03     1.03     1.03     1.03     1.03     -        1.03     1.03     1.03   
+lepEff                  shape     1.0      1.0      1.0      1.0      -        1.0      1.0      1.0      1.0      1.0      1.0      1.0      -        1.0      1.0      1.0    
+lumi_13TeV              lnN       1.025    1.025    1.025    1.025    -        1.025    1.025    1.025    1.025    1.025    1.025    1.025    -        1.025    1.025    1.025  
+yield_DY                lnN       -        -        -        -        -        -        1.2      -        -        -        -        -        -        -        1.2      -      
+yield_ST                lnN       -        -        -        -        -        1.1      -        -        -        -        -        -        -        1.1      -        -      
+yield_TTbar             lnN       -        -        -        -        -        -        -        1.01     -        -        -        -        -        -        -        1.01   
+yield_cc                lnN       -        -        -        1.1      -        -        -        -        -        -        -        1.1      -        -        -        -      
+yield_diboson           lnN       -        1.2      -        -        -        -        -        -        -        1.2      -        -        -        -        -        -      
+yield_qcd_el            lnU       -        -        -        -        10.0     -        -        -        -        -        -        -        10.0     -        -        -      
+yield_sgl               lnN       1.1      -        -        -        -        -        -        -        1.1      -        -        -        -        -        -        -      
+yield_udsg              lnN       -        -        1.1      -        -        -        -        -        -        -        1.1      -        -        -        -        -      
