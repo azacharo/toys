@@ -6,7 +6,7 @@ kmax * number of nuisance parameters
 shapes *         cat0_el   {pathTo}InputFiles/cat0_SR/shapesVar_el_mBB_10_btagSF_cutMET_SF.root h_$PROCESS_mBB h_$PROCESS_mBB_$SYSTEMATIC
 shapes data_obs  cat0_el   {pathTo}InputFiles/cat0_SR/shapes_data_el_mBB_10_btagSF_cutMET.root h_mBB_data
 shapes qcd       cat0_el   {pathTo}InputFiles/cat0_SR/shapes_qcdVar_el_mBB_10_btagSF_cutMET.root h_$PROCESS_mBB h_$PROCESS_mBB_$SYSTEMATIC
-shapes *         cat1_el   {pathTo}InputFiles/cat1_ST/ST_shapesVar_el_mTtop_10_btagSF_SF.root h_$PROCESS_mTtop h_$PROCESS_mTtop_$SYSTEMATIC
+shapes *         cat1_el   {pathTo}InputFiles/cat1_ST/shapesVar_el_mTtop_10_btagSF_SF.root h_$PROCESS_mTtop h_$PROCESS_mTtop_$SYSTEMATIC
 shapes data_obs  cat1_el   {pathTo}InputFiles/cat1_ST/shapes_data_el_mTtop_10_btagSF.root h_mTtop_data
 shapes qcd       cat1_el   {pathTo}InputFiles/cat1_ST/shapes_qcdVar_el_mTtop_10_btagSF.root h_$PROCESS_mTtop h_$PROCESS_mTtop_$SYSTEMATIC
 ----------------------------------------------------------------------------------------------------------------------------------
